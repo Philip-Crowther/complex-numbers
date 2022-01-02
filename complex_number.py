@@ -6,6 +6,16 @@ class ComplexNumber:
         self.real = real_part
         self.imaginary = imaginary_part
 
+    @classmethod
+    def from_str(cls, str):
+        """class constructor from a string"""
+        pass
+
+    @classmethod
+    def from_angle(cls, angle, magnitude):
+        """constructs complex number from angle and magnitude"""
+        pass
+
     @property
     def angle(self):
         pass
