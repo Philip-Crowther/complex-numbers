@@ -27,7 +27,9 @@ class ComplexNumber:
         pass
 
     def __mul__(self, factor):
-        pass
+        new_magnitude = self.magnitude * factor.magnitude
+        new_angel = self.angle + factor.angle
+        return ComplexNumber.from_angle(new_angel, new_magnitude)
 
     def __truediv__(self, divisor):
         pass
