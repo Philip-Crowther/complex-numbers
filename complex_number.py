@@ -25,10 +25,12 @@ class ComplexNumber:
         pass
 
     def __repr__(self):
-        return f"ComplexNumber(real='{self.real}', imaginary={self.imaginary})"
+        operator = "+" if self.imaginary >= 0 else "-"
+        return f"{self.real} {operator} {abs(self.imaginary)}"
 
     def __str__(self) -> str:
-        return f"{self.real} + {self.imaginary}i"
+        operator = "+" if self.imaginary >= 0 else "-"
+        return f"{self.real} {operator} {abs(self.imaginary)}i"
 
     def __add__(self, addend):
         pass
