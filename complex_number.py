@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+from math import atan
 
 class ComplexNumber:
-    """representation of a complex number"""
+    """Representation of a complex number"""
     def __init__(self, real_part=0, imaginary_part=0):
         self.real = real_part
         self.imaginary = imaginary_part
@@ -13,17 +14,19 @@ class ComplexNumber:
 
     @classmethod
     def from_angle(cls, angle, magnitude):
-        """constructs complex number from angle and magnitude"""
+        """constructs complex number from an angle and a magnitude"""
         pass
 
 
     @property
     def angle(self):
-        pass
+        """calculate the angle of the complex number"""
+        return atan(self.imaginary/self.real)
 
     @property
     def magnitude(self):
-        """returns the magnitude of complex number"""
+        """returns the magnitude of complex number
+        (calculates using the pythagorean theorem)"""
         return (self.real ** 2 + self.imaginary ** 2) ** 1/2
 
     def __repr__(self):
