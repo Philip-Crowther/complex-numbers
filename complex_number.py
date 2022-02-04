@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from math import atan
+from math import atan, sin, cos
 
 class ComplexNumber:
     """Representation of a complex number"""
@@ -15,8 +15,9 @@ class ComplexNumber:
     @classmethod
     def from_angle(cls, angle, magnitude):
         """constructs complex number from an angle and a magnitude"""
-        pass
-
+        real = sin(angle) * magnitude
+        imaginary = cos(angle) * magnitude
+        return cls(real, imaginary)
 
     @property
     def angle(self):
