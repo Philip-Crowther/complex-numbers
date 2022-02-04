@@ -45,7 +45,7 @@ class ComplexNumber:
 
     def __sub__(self, subtrahend):
         """implementation of complex subtraction"""
-        pass
+        return ComplexNumber(self.real - subtrahend.real, self.imaginary - subtrahend.imaginary)
 
     def __mul__(self, factor):
         """implementation of complex multiplication 
@@ -53,7 +53,7 @@ class ComplexNumber:
         new_magnitude = self.magnitude * factor.magnitude
         new_angel = self.angle + factor.angle
         return ComplexNumber.from_angle(new_angel, new_magnitude)
-
+git
     def __truediv__(self, divisor):
         """Implementation of complex division
         (shrink by magnitude and subtract angles)"""
