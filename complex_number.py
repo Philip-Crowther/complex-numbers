@@ -41,7 +41,7 @@ class ComplexNumber:
 
     def __add__(self, addend):
         """implementation of complex addition"""
-        pass
+        return ComplexNumber(self.real + addend.real, self.imaginary + addend.imaginary)
 
     def __sub__(self, subtrahend):
         """implementation of complex subtraction"""
@@ -57,7 +57,9 @@ class ComplexNumber:
     def __truediv__(self, divisor):
         """Implementation of complex division
         (shrink by magnitude and subtract angles)"""
-        pass
+        new_magnitude = self.magnitude / divisor.magnitude
+        new_angle = self.angle - divisor.angle
+        return ComplexNumber.from_angle(new_angle, new_magnitude)
 
     def __abs__(self):
         """return absolute value of the complex number"""
