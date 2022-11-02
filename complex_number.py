@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-from math import atan, sin, cos
+from math import atan, cos, sin
+
 
 class ComplexNumber:
     """Representation of a complex number"""
@@ -22,6 +23,8 @@ class ComplexNumber:
     @property
     def angle(self):
         """calculate the angle of the complex number"""
+        if self.real == 0:
+            return atan(self.imaginary)
         return atan(self.imaginary/self.real)
 
     @property
