@@ -4,9 +4,9 @@ from math import atan, cos, sin
 
 class ComplexNumber:
     """Representation of a complex number"""
-    def __init__(self, real_part=0, imaginary_part=0):
-        self.real = real_part
-        self.imaginary = imaginary_part
+    def __init__(self, real=0, imaginary=0):
+        self.real = real
+        self.imaginary = imaginary
 
     @classmethod
     def from_str(cls, str):
@@ -24,7 +24,7 @@ class ComplexNumber:
     def angle(self):
         """calculate the angle of the complex number"""
         if self.real == 0:
-            return atan(self.imaginary)
+            return 90 if self.imaginary > 0 else 270
         return atan(self.imaginary/self.real)
 
     @property
@@ -39,7 +39,7 @@ class ComplexNumber:
         return f"{self.real} {operator} {abs(self.imaginary)}"
 
     def __str__(self) -> str:
-        """returns a string representation of a comlex number"""
+        """returns a string representation of a complex number"""
         operator = "+" if self.imaginary >= 0 else "-"
         return f"{self.real} {operator} {abs(self.imaginary)}i"
 
