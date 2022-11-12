@@ -77,14 +77,14 @@ class ComplexNumber:
     def __mul__(self, factor):
         """implementation of complex multiplication 
         (scale by magnitude and add angles)"""
-        pass
+        new_real = self.real * factor.real - self.imaginary * factor.imaginary
+        new_imaginary = self.real * factor.imaginary + factor.real * self.imaginary
+        return ComplexNumber(new_real, new_imaginary)
 
     def __truediv__(self, divisor):
         """Implementation of complex division
         (shrink by magnitude and subtract angles)"""
-        new_magnitude = self.magnitude / divisor.magnitude
-        new_angle = self.angle - divisor.angle
-        return ComplexNumber.from_angle(new_angle, new_magnitude)
+        pass
 
     def __abs__(self):
         """return absolute value of the complex number"""
