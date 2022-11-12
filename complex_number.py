@@ -77,9 +77,7 @@ class ComplexNumber:
     def __mul__(self, factor):
         """implementation of complex multiplication 
         (scale by magnitude and add angles)"""
-        new_magnitude = self.magnitude * factor.magnitude
-        new_angel = self.angle + factor.angle
-        return ComplexNumber.from_angle(new_angel, new_magnitude)
+        pass
 
     def __truediv__(self, divisor):
         """Implementation of complex division
