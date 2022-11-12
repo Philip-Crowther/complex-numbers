@@ -16,9 +16,32 @@ class ComplexNumber:
     @classmethod
     def from_angle(cls, angle, magnitude):
         """constructs complex number from an angle and a magnitude"""
-        real = sin(angle) * magnitude
-        imaginary = cos(angle) * magnitude
-        return cls(real, imaginary)
+        # identify the quadrant of the number relative to the real and complex number lines
+        # find angle from real number line, then store relationships to zero to use once distance is calculated
+        if angle < 90:  # postive real, positive imaginary
+            adjusted_angle = angle
+            real_sign, imaginary_sign = (1, 1)
+        elif angle < 180:  # negative real, positive imaginary
+            adjusted_angle = 90 - (angle - 90)
+            real_sign, imaginary_sign = (-1, 1)
+        elif angle < 270:  # negative real, negative imaginary
+            adjusted_angle = angle - 180
+            real_sign, imaginary_sign = (-1, -1)
+        else:  # positive real, negative imaginary
+            adjusted_angle = 90 - (angle -270)
+            real_sign, imaginary_sign = (1, -1)
+
+        # calculate real and imaginary parts using trig functions
+        real = sin(adjusted_angle) * magnitude  # sin(angle) == opposite/hypotenuse
+        imaginary = cos(adjusted_angle) * magnitude  # cos(angle) == adjacent/hypotenuse
+
+        return cls(real * real_sign, imaginary * imaginary_sign)
+
+        # identify which quadrant
+        # calculate angle/measure angle using real number line as adjacent; adjust for current quadrant
+        # with calculated absolute value change signs in accordance with accurate quadrant
+        # return object
+
 
     @property
     def angle(self):
@@ -68,9 +91,3 @@ class ComplexNumber:
     def __abs__(self):
         """return absolute value of the complex number"""
         return self.magnitude
-
-    
-
-if __name__ == "__main__":
-    main()
-
